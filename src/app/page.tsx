@@ -48,24 +48,30 @@ const Home: React.FC = () => {
 
   return (
     <div className="max-w-xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Task Manager</h1>
-      <TaskInput addTask={addTask} />
+      <h1 className="text-2xl text-center font-semibold mb-4">Task Manager</h1>
+
       <div className="flex justify-around mb-4">
         <button
           onClick={() => setFilter('all')}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+          className={`text-[#A9AABE] px-4 py-2 hover:text-black rounded  ${
+            filter === 'all' ? ' font-bold text-black ' : ''
+          }`}
         >
           All
         </button>
         <button
           onClick={() => setFilter('active')}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+          className={`text-[#A9AABE] px-4 py-2 hover:text-black   ${
+            filter === 'active' ? 'font-bold ' : ''
+          }`}
         >
           Active
         </button>
         <button
           onClick={() => setFilter('completed')}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+          className={`text-[#A9AABE] px-4 py-2 hover:text-black  ${
+            filter === 'completed' ? 'font-bold text-white' : ''
+          }`}
         >
           Completed
         </button>
@@ -76,6 +82,10 @@ const Home: React.FC = () => {
         deleteTask={deleteTask}
         filter={filter}
       />
+
+      <button className='text-white justify-end flex absolute rounded-2xl bg-blue-500 p-4'>Create Task</button>
+
+      <TaskInput addTask={addTask} />
     </div>
   );
 };
