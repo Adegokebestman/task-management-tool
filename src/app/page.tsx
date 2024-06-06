@@ -22,7 +22,7 @@ const Home: React.FC = () => {
   });
   const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
 
-  // Save tasks to localStorage whenever tasks change
+  // Save tasks to localStorage whenever tasks changes
   useEffect(() => {
     if (typeof window !== "undefined") {
       localStorage.setItem("tasks", JSON.stringify(tasks));
