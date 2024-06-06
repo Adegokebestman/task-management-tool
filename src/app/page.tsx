@@ -16,7 +16,7 @@ const Home: React.FC = () => {
 
   // Load tasks from localStorage when the component mounts
   useEffect(() => {
-    const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+    const storedTasks = JSON.parse(localStorage.getItem('tasks') || '');
     setTasks(storedTasks);
   }, []);
 
@@ -47,46 +47,65 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-4">
-      <h1 className="text-2xl text-center font-semibold mb-4">Task Manager</h1>
+    <>
 
-      <div className="flex justify-around mb-4">
+      <header className="
+      w-full
+      h-50
+      sm:h-74
+      sm:bg-mobile-light
+      bg-desktop-light
+      bg-cover
+      bg-no-repeat
+      transition-all
+      duration-300
+    ">
+      <div className="max-w-xl  mx-auto p-4 ">
+      <h1 className="text-4xl text-white text-center font-bold py-8">Task Manager</h1>
+      <TaskInput addTask={addTask} />
+
+      <div className="flex bg-white shadow-lg rounded-md py-1 justify-around mb-4">
         <button
           onClick={() => setFilter('all')}
-          className={`text-[#A9AABE] px-4 py-2 hover:text-black rounded  ${
-            filter === 'all' ? ' font-bold text-black ' : ''
+          className={`text-[#A9AABE] px-4 py-2 hover:text-[#3a7bfdcc] ${
+            filter === 'all' ? ' font-bold text-[#3a7bfdcc]  ' : ''
           }`}
         >
           All
         </button>
         <button
           onClick={() => setFilter('active')}
-          className={`text-[#A9AABE] px-4 py-2 hover:text-black   ${
-            filter === 'active' ? 'font-bold ' : ''
+          className={`text-[#A9AABE] px-4 py-2 hover:text-[#3a7bfdcc]   ${
+            filter === 'active' ? 'font-bold text-[#3a7bfdcc] ' : ''
           }`}
         >
           Active
         </button>
         <button
           onClick={() => setFilter('completed')}
-          className={`text-[#A9AABE] px-4 py-2 hover:text-black  ${
-            filter === 'completed' ? 'font-bold text-white' : ''
+          className={`text-[#A9AABE] px-4 py-2 hover:text-[#3a7bfdcc]  ${
+            filter === 'completed' ? 'font-bold text-[#3a7bfdcc] ' : ''
           }`}
         >
           Completed
         </button>
       </div>
-      <TaskList
+
+      </div>
+
+    </header>
+    <div className="max-w-xl  mx-auto p-4 ">
+    <TaskList
         tasks={tasks}
         toggleComplete={toggleComplete}
         deleteTask={deleteTask}
         filter={filter}
       />
-
-      <button className='text-white justify-end flex absolute rounded-2xl bg-blue-500 p-4'>Create Task</button>
-
-      <TaskInput addTask={addTask} />
     </div>
+
+
+
+    </>
   );
 };
 

@@ -5,12 +5,6 @@
 
 
 body {
- background-color: #F5F7FA;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+ background-color: #FAFAFA;
 }
 
