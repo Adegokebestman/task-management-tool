@@ -1,5 +1,5 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
+### Taskify is a simple task manager app built with Next.js and Tailwind CSS.
 ## Getting Started
 
 First, run the development server:
