@@ -12,16 +12,21 @@ interface Task {
 
 const Home: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>(() => {
-    // Load tasks from localStorage when the component mounts
+    if (typeof window !== "undefined") {
+      // Load tasks from localStorage when the component mounts
     const storedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
     console.log(storedTasks);
     return storedTasks;
+    }
+    return [];
   });
   const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
 
   // Save tasks to localStorage whenever tasks change
   useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    if (typeof window !== "undefined") {
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
   }, [tasks]);
 
   const addTask = (text: string) => {
