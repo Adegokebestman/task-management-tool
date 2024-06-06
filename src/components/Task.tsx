@@ -24,7 +24,7 @@ const Task: React.FC<TaskProps> = ({ task, toggleComplete, deleteTask }) => {
         onChange={() => toggleComplete(task.id)}
         className="mr-2 "
       />
-      <div className='divide-x rounded-xl h-[40px] w-[2px] bg-[#FF0066]'>
+      <div className='divide-x rounded-xl h-[40px] w-[2px] bg-[#3a7bfdcc]'>
 
 </div>
       </div>
